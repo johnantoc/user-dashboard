@@ -43,7 +43,9 @@ const ListItem = ({
             sm={6}
             className="ps-sm-3 pe-sm-3 align-self-center text-info text-start text-sm-end"
           >
-            {email}
+            <a href={`mailto:${email}`} className="text-decoration-none">
+              {email}
+            </a>
           </Col>
         </Row>
       </Col>
