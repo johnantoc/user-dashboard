@@ -4,6 +4,19 @@
   background-color: #c1c1c1;
 }
 
+/*
+* Last list item border-bottom.
+*/
 .list-item:last-of-type {
   border-bottom: 1px solid !important;
+}
+
+/*
+* Removes border-left and border-right for small devices. 
+*/
+@media (max-width: 576px) {
+  .list-item {
+    border-left: 0px !important;
+    border-right: 0px !important;
+  }
 }

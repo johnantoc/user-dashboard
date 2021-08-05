@@ -2,6 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormGroup, Label, Input } from "reactstrap";
 
+/**
+ * @description - TextInput component.
+ *
+ * @param {String} name - Name String.
+ * @param {String} label - Label alt String.
+ * @param {String} size - Size String.
+ * @param {String} value - Value String.
+ * @param {func} onChangeHandler - Change Handler function.
+ *
+ * @returns {ReactComponentElement} - Returns TextInput.
+ */
 const TextInput = ({ name, label, size = "lg", value, onChangeHandler }) => {
   return (
     <FormGroup>

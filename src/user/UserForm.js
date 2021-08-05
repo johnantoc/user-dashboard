@@ -6,6 +6,16 @@ import TextInput from "../components/TextInput";
 import SelectInput from "../components/SelectInput";
 import { sortByOptions } from "../utils/constants";
 
+/**
+ * @description - User Form component.
+ *
+ * @param {String} search - Search String.
+ * @param {func} onChangeHandler - Change Handler function.
+ * @param {String} sortBy - Sort By String.
+ * @param {func} onDropDownSelect - Select Handler function.
+ *
+ * @returns {ReactComponentElement} - Returns User Form.
+ */
 const UserForm = ({ search, onChangeHandler, sortBy, onDropDownSelect }) => (
   <Form>
     <Container>

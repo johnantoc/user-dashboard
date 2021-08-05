@@ -2,6 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FormGroup, Label, Input } from "reactstrap";
 
+/**
+ * @description - SelectInput component.
+ *
+ * @param {String} name - Name String.
+ * @param {String} label - Label alt String.
+ * @param {String} size - Size String.
+ * @param {String} value - Value String.
+ * @param {func} onChangeHandler - Change Handler function.
+ * @param {array} options - Select Options Array.
+ *
+ * @returns {ReactComponentElement} - Returns SelectInput.
+ */
 const SelectInput = ({
   name,
   label,
