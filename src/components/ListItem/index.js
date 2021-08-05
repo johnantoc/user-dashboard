@@ -14,7 +14,7 @@ const ListItem = ({
 }) => {
   return (
     <Container
-      className="border border-secondary"
+      className="border border-bottom-0 border-secondary list-item"
       style={{ backgroundColor: bg }}
     >
       <Row className="p-3 p-3 justify-content-start align-items-center">

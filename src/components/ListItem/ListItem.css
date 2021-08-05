@@ -3,3 +3,7 @@
   height: 60px;
   background-color: #c1c1c1;
 }
+
+.list-item:last-of-type {
+  border-bottom: 1px solid !important;
+}
