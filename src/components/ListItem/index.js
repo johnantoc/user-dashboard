@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
 import PropTypes from "prop-types";
+import { Container, Row, Col } from "reactstrap";
 
 import "./ListItem.css";
 

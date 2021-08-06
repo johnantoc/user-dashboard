@@ -1,0 +1,8 @@
+/*
+* Removes border for small devices. 
+*/
+@media (max-width: 992px) {
+  .infocard {
+    border: 0px !important;
+  }
+}
