@@ -16,17 +16,13 @@ import "./ListItem.css";
  *
  * @returns {ReactComponentElement} - Returns ListItem.
  */
-const ListItem = ({
-  image,
-  alt = "Avatar",
-  name,
-  username,
-  email,
-  bg = "#fff",
-}) => (
+const ListItem = ({ image, id, alt, name, username, email, onClick, bg }) => (
   <Container
     className="border border-bottom-0 border-secondary list-item"
     style={{ backgroundColor: bg }}
+    role="button"
+    tabIndex="0"
+    onClick={() => onClick(id)}
   >
     <Row className="p-3 p-3 justify-content-start align-items-center">
       <Col xs={5} className="justify-content-center avatar rounded-circle">
@@ -43,7 +39,14 @@ const ListItem = ({
             sm={6}
             className="ps-sm-3 pe-sm-3 align-self-center text-info text-start text-sm-end"
           >
-            <a href={`mailto:${email}`} className="text-decoration-none">
+            <a
+              href={`mailto:${email}`}
+              className="text-decoration-none"
+              onClick={(ev) => {
+                ev.stopPropagation();
+                return true;
+              }}
+            >
               {email}
             </a>
           </Col>
@@ -53,9 +56,23 @@ const ListItem = ({
   </Container>
 );
 
+ListItem.defaultProps = {
+  image: "",
+  alt: "Avatar",
+  bg: "#fff",
+  onClick: () => null,
+  id: null,
+  name: "",
+  username: "",
+  email: "",
+};
+
 ListItem.propTypes = {
+  id: PropTypes.number.isRequired,
   image: PropTypes.string,
   alt: PropTypes.string,
+  onClick: PropTypes.func,
+  bg: PropTypes.string,
   name: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,

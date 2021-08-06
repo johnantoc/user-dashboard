@@ -17,7 +17,7 @@ import { FormGroup, Label, Input } from "reactstrap";
 const SelectInput = ({
   name,
   label,
-  size = "lg",
+  size,
   value,
   onChangeHandler,
   options,
@@ -43,6 +43,15 @@ const SelectInput = ({
       </Input>
     </FormGroup>
   );
+};
+
+SelectInput.defaultProps = {
+  size: "lg",
+  options: [],
+  name: "",
+  label: "",
+  value: "",
+  onChangeHandler: () => null,
 };
 
 SelectInput.propTypes = {

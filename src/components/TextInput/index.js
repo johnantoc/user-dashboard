@@ -13,7 +13,7 @@ import { FormGroup, Label, Input } from "reactstrap";
  *
  * @returns {ReactComponentElement} - Returns TextInput.
  */
-const TextInput = ({ name, label, size = "lg", value, onChangeHandler }) => {
+const TextInput = ({ name, label, size, value, onChangeHandler }) => {
   return (
     <FormGroup>
       <Label for={name} className="fw-bold">
@@ -29,6 +29,14 @@ const TextInput = ({ name, label, size = "lg", value, onChangeHandler }) => {
       />
     </FormGroup>
   );
+};
+
+TextInput.defaultProps = {
+  size: "lg",
+  name: "",
+  label: "",
+  value: "",
+  onChangeHandler: () => null,
 };
 
 TextInput.propTypes = {

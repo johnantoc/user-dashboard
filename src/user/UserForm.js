@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col, Form } from "reactstrap";
 import PropTypes from "prop-types";
+import { Container, Row, Col, Form } from "reactstrap";
 
 import TextInput from "../components/TextInput";
 import SelectInput from "../components/SelectInput";
@@ -51,6 +51,13 @@ const UserForm = ({ search, onChangeHandler, sortBy, onDropDownSelect }) => (
     </Container>
   </Form>
 );
+
+UserForm.defaultProps = {
+  search: "",
+  onChangeHandler: () => null,
+  sortBy: "Name",
+  onDropDownSelect: () => null,
+};
 
 UserForm.propTypes = {
   search: PropTypes.string.isRequired,

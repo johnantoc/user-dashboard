@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Spinner } from "reactstrap";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
+import Loader from "../components/Loader";
 import ListItem from "../components/ListItem";
 import { getUsersList } from "../utils/constants";
 
@@ -17,6 +18,7 @@ const UserList = ({ search, sortBy }) => {
   const [loader, setLoader] = useState(true);
   const [masterList, setMasterList] = useState([]);
   const [shownList, setShownList] = useState([]);
+  const history = useHistory();
 
   // Component Did Mount.
   useEffect(() => {
@@ -34,6 +36,7 @@ const UserList = ({ search, sortBy }) => {
 
   //Component Did Update.
   useEffect(() => {
+    let timeout = null;
     const filteredData =
       search !== ""
         ? masterList.filter((item) => {
@@ -57,26 +60,32 @@ const UserList = ({ search, sortBy }) => {
     });
 
     setShownList(sortedData);
-    if (loader) setTimeout(() => setLoader(false), 500);
+    if (loader) timeout = setTimeout(() => setLoader(false), 500);
+    return () => clearTimeout(timeout);
   }, [masterList, search, sortBy, loader]);
 
+  /**
+   * @description - Moves to user details screen.
+   *
+   * @returns {null} - Returns null.
+   */
+  const showUserDetails = (id) => {
+    history.push(`/user/${id}`);
+  };
+
   // Shows a spinner while loading data.
-  if (loader) {
-    return (
-      <div className="d-flex justify-content-center align-item-center w-100">
-        <Spinner size="lg" color="primary" children="" />
-      </div>
-    );
-  }
+  if (loader) return <Loader />;
 
   return shownList.length && !loader ? (
     shownList.map(({ name, id, username, email }, index) => (
       <ListItem
         key={`${name}${id}`}
         image={""}
+        id={id}
         name={name}
         username={username}
         email={email}
+        onClick={showUserDetails}
         bg={index % 2 === 0 ? "#fdf8f8" : "#fff"}
       />
     ))
@@ -85,6 +94,11 @@ const UserList = ({ search, sortBy }) => {
       <span>No User Found!</span>
     </div>
   );
+};
+
+UserList.defaultProps = {
+  search: "",
+  sortBy: "Name",
 };
 
 UserList.propTypes = {
