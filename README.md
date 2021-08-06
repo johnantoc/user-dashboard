@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+![Logo](https://via.placeholder.com/700x100/000000/ffffff?text=User+Dashboard+Logo)
+
+# User Dashboard
+
+A user dashboard using the endpoints provided by [jsonplaceholder](http://jsonplaceholder.typicode.com/).
+
+## Dependencies
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+- [Bootstrap](https://github.com/twbs/bootstrap) - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+- [ReactStrap](https://github.com/reactstrap/reactstrap) - Stateless React Components for Bootstrap.
+- [React Testing Library](https://github.com/testing-library/react-testing-library) - Simple and complete React DOM testing utilities.
+- [MSW](https://github.com/mswjs/msw) - An API mocking library for browser and Node.js.
 
-In the project directory, you can run:
+## Installation and Run locally on dev server
 
-### `npm start`
+Clone the project.
 
-Runs the app in the development mode.\
+```bash
+  git clone https://github.com/johnantoc/user-dashboard.git
+```
+
+Go to the project directory.
+
+```bash
+  cd user-dashboard
+```
+
+Install dependencies.
+
+```bash
+  npm install
+```
+
+Start the dev server.
+
+```bash
+  npm start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Running Tests
 
-Launches the test runner in the interactive watch mode.\
+To run tests, run the following command
+
+```bash
+  npm test
+```
+
+Launches the test runner. Watch mode is set to false.\
+Test coverage can be viewed from test_coverage/lcov-report/index.html.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## API Reference
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Get all users.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```https
+  GET https://jsonplaceholder.typicode.com/users
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Parameter | Type | Description |
+| :-------- | :--- | :---------- |
+| `-`       | `-`  | -           |
 
-### `npm run eject`
+#### Get user detail.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```https
+  GET https://jsonplaceholder.typicode.com/users/${id}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id of user to fetch |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Get user posts.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```https
+  GET https://jsonplaceholder.typicode.com/posts?userId=${id}
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `number` | **Required**. Id of user to fetch |
