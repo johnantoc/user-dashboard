@@ -26,8 +26,10 @@ function CompanyInfo({ userDetail }) {
       <div>
         Website:{" "}
         <a
-          href={`${userDetail?.website || ""}`}
+          href={`https://${userDetail?.website || ""}`}
           className="text-decoration-none"
+          target="_blank"
+          rel="noreferrer"
         >{`${userDetail?.website || ""}`}</a>
       </div>
     </InfoCard>
