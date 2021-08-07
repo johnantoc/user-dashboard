@@ -23,7 +23,7 @@ const UserPosts = ({ name }) => {
       const data = await response.json();
       setUserPosts(data);
     })();
-  }, []);
+  }, [id]);
 
   /**
    *  @description - Changes the data Array for View.
