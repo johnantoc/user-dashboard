@@ -67,7 +67,7 @@ describe("UserDetails Page", () => {
   test("renders UserInfo", async () => {
     render(
       <MemoryRouter initialEntries={["users/1"]}>
-        <Route path="users/:id">
+        <Route path="users/1">
           <UserInfo userDetail={sampleUserData} />
         </Route>
       </MemoryRouter>

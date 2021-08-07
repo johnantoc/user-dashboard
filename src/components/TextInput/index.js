@@ -36,7 +36,6 @@ TextInput.defaultProps = {
   name: "",
   label: "",
   value: "",
-  onChangeHandler: () => null,
 };
 
 TextInput.propTypes = {

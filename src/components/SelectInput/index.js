@@ -51,7 +51,6 @@ SelectInput.defaultProps = {
   name: "",
   label: "",
   value: "",
-  onChangeHandler: () => null,
 };
 
 SelectInput.propTypes = {

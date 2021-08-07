@@ -10,7 +10,7 @@ describe("Select Input", () => {
         label="Sort By"
         size="lg"
         value="Name"
-        onChangeHandler={() => null}
+        onChangeHandler={jest.fn()}
         options={sortByOptions}
       />
     );

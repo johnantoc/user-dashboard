@@ -20,7 +20,8 @@ const UserDetails = () => {
       const data = await response.json();
       setUserDetail(data);
     })();
-  }, [id]);
+  }, []);
+  
   return (
     <>
       <UserInfo userDetail={userDetail} />

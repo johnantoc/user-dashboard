@@ -23,7 +23,7 @@ const UserPosts = ({ name }) => {
       const data = await response.json();
       setUserPosts(data);
     })();
-  }, [id]);
+  }, []);
 
   /**
    *  @description - Changes the data Array for View.
@@ -32,15 +32,16 @@ const UserPosts = ({ name }) => {
    */
   const getDataForView = () => {
     let finalDataArray = [];
-    let start = 0;
-    // 3 columns are needed.
-    const noOfRows = Math.ceil(userPosts.length / 3);
-    for (let rowNo = 0; rowNo < noOfRows; rowNo++) {
-      let end = start + 3;
-      finalDataArray.push(userPosts.slice(start, end));
-      start += 3;
+    if (userPosts.length) {
+      let start = 0;
+      // 3 columns are needed.
+      const noOfRows = Math.ceil(userPosts.length / 3);
+      for (let rowNo = 0; rowNo < noOfRows; rowNo++) {
+        let end = start + 3;
+        finalDataArray.push(userPosts.slice(start, end));
+        start += 3;
+      }
     }
-
     return finalDataArray;
   };
 
@@ -53,27 +54,31 @@ const UserPosts = ({ name }) => {
           </Col>
         </Row>
         {userPosts
-          ? getDataForView().map((rowItems, rowInd) => (
-              <Row className="mb-sm-0 mb-lg-3" key={`row_${rowInd}`}>
-                {rowItems.map((colItem, colInd) => (
-                  <Col
-                    xs={12}
-                    lg={4}
-                    className="mb-2"
-                    key={`col_${rowInd}_${colInd}`}
-                  >
-                    <InfoCard
-                      key={colItem?.id}
-                      title={`${colItem?.title || ""}`}
-                      text={`${colItem?.body || ""}`}
-                    />
-                    <div className="d-block d-lg-none">
-                      <Seperator />
-                    </div>
-                  </Col>
-                ))}
-              </Row>
-            ))
+          ? getDataForView().map((rowItems = [], rowInd) => {
+              return rowItems && rowItems.length ? (
+                <Row className="mb-sm-0 mb-lg-3" key={`row_${rowInd}`}>
+                  {rowItems.map((colItem, colInd) => {
+                    return colItem ? (
+                      <Col
+                        xs={12}
+                        lg={4}
+                        className="mb-2"
+                        key={`col_${rowInd}_${colInd}`}
+                      >
+                        <InfoCard
+                          key={colItem?.id}
+                          title={`${colItem?.title || ""}`}
+                          text={`${colItem?.body || ""}`}
+                        />
+                        <div className="d-block d-lg-none">
+                          <Seperator />
+                        </div>
+                      </Col>
+                    ) : null;
+                  })}
+                </Row>
+              ) : null;
+            })
           : null}
       </section>
     </ErrorBoundary>

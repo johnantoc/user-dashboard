@@ -54,9 +54,7 @@ const UserForm = ({ search, onChangeHandler, sortBy, onDropDownSelect }) => (
 
 UserForm.defaultProps = {
   search: "",
-  onChangeHandler: () => null,
   sortBy: "Name",
-  onDropDownSelect: () => null,
 };
 
 UserForm.propTypes = {

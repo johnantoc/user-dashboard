@@ -9,7 +9,7 @@ describe("Text Input", () => {
         label="Search"
         size="lg"
         value="Er"
-        onChangeHandler={() => null}
+        onChangeHandler={jest.fn()}
       />
     );
     const sortByLabel = screen.getByLabelText("Search");
