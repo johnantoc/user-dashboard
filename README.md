@@ -4,12 +4,20 @@
 
 A user dashboard using the endpoints provided by [jsonplaceholder](http://jsonplaceholder.typicode.com/).
 
+## Features
+
+- Declarative Routing
+- Functional Components
+- Error Boundary Implemented
+- Testcases with code coverage html report page generation.
+
 ## Dependencies
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 - [Bootstrap](https://github.com/twbs/bootstrap) - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
 - [ReactStrap](https://github.com/reactstrap/reactstrap) - Stateless React Components for Bootstrap.
+- [React Router](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom) - Declarative routing for React.
 - [React Testing Library](https://github.com/testing-library/react-testing-library) - Simple and complete React DOM testing utilities.
 - [MSW](https://github.com/mswjs/msw) - An API mocking library for browser and Node.js.
 
