@@ -4,16 +4,14 @@ import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
 import "./InfoCard.css";
 
-const InfoCard = ({ title, text, children }) => {
-  return (
-    <Card className="h-100 border border-2 infocard">
-      <CardBody className="p-4">
-        <CardTitle tag="h5">{title}</CardTitle>
-        {text ? <CardText>{text}</CardText> : children}
-      </CardBody>
-    </Card>
-  );
-};
+const InfoCard = ({ title, text, children }) => (
+  <Card className="h-100 border border-2 infocard">
+    <CardBody className="p-4">
+      <CardTitle tag="h5">{title}</CardTitle>
+      {text ? <CardText>{text}</CardText> : children}
+    </CardBody>
+  </Card>
+);
 
 InfoCard.defaultProps = {
   title: "",

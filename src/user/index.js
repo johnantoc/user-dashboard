@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import UserForm from "./UserForm";
 import UserList from "./UserList";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 /**
  * @description - User Page component.
@@ -33,7 +34,7 @@ const User = () => {
   };
 
   return (
-    <>
+    <ErrorBoundary>
       <section className="container pt-3 pb-3">
         <UserForm
           search={search}
@@ -45,7 +46,7 @@ const User = () => {
       <section className="container pt-3 pb-3">
         <UserList search={search} sortBy={sortBy} />
       </section>
-    </>
+    </ErrorBoundary>
   );
 };
 

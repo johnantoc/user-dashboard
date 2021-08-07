@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "reactstrap";
 
+import ErrorBoundary from "../components/ErrorBoundary";
 import BreadCrumb from "../components/BreadCrumb";
 import CompanyInfo from "./CompanyInfo";
 import InfoCard from "../components/InfoCard";
@@ -13,12 +14,14 @@ const UserInfo = ({ userDetail }) => (
       {userDetail ? (
         <Row className="ps-2 ps-lg-0">
           <Col className="ps-4 ps-lg-2">
-            <BreadCrumb
-              list={[
-                { text: "Users", link: "/" },
-                { text: userDetail?.name || "", link: "" },
-              ]}
-            />
+            <ErrorBoundary>
+              <BreadCrumb
+                list={[
+                  { text: "Users", link: "/" },
+                  { text: userDetail?.name || "", link: "" },
+                ]}
+              />
+            </ErrorBoundary>
           </Col>
         </Row>
       ) : null}
@@ -27,32 +30,38 @@ const UserInfo = ({ userDetail }) => (
       {userDetail ? (
         <Row>
           <Col xs={12} lg={4}>
-            <CompanyInfo userDetail={userDetail} />
+            <ErrorBoundary>
+              <CompanyInfo userDetail={userDetail} />
+            </ErrorBoundary>
           </Col>
           <Col xs={12} lg={4}>
-            <InfoCard
-              title="Address"
-              text={`${userDetail?.address?.suite || ""} ${
-                userDetail?.address?.street || ""
-              }, ${userDetail?.address?.city || ""}, ${
-                userDetail?.address?.zipcode || ""
-              }`}
-            />
+            <ErrorBoundary>
+              <InfoCard
+                title="Address"
+                text={`${userDetail?.address?.suite || ""} ${
+                  userDetail?.address?.street || ""
+                }, ${userDetail?.address?.city || ""}, ${
+                  userDetail?.address?.zipcode || ""
+                }`}
+              />
+            </ErrorBoundary>
           </Col>
           <Col xs={12} lg={4}>
-            <InfoCard title="Company">
-              <div>
-                <span>{`${userDetail?.company?.name || ""}`}</span>
-              </div>
-              <div>
-                <span>{`${userDetail?.company?.bs || ""}`}</span>
-              </div>{" "}
-              <div>
-                <i>
-                  <span>{`"${userDetail?.company?.catchPhrase || ""}"`}</span>
-                </i>
-              </div>
-            </InfoCard>
+            <ErrorBoundary>
+              <InfoCard title="Company">
+                <div>
+                  <span>{`${userDetail?.company?.name || ""}`}</span>
+                </div>
+                <div>
+                  <span>{`${userDetail?.company?.bs || ""}`}</span>
+                </div>{" "}
+                <div>
+                  <i>
+                    <span>{`"${userDetail?.company?.catchPhrase || ""}"`}</span>
+                  </i>
+                </div>
+              </InfoCard>
+            </ErrorBoundary>
           </Col>
         </Row>
       ) : null}
